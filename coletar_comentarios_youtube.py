@@ -3,7 +3,7 @@ import pandas as pd
 from tqdm import tqdm
 
 # Sua chave de API do YouTube Data
-API_KEY = "AIzaSyDEtRq1qdXdJEeAubuWBPJPXsXX-nk8hQo"
+API_KEY = ""
 
 # IDs ou URLs dos vídeos de desafio do Enaldinho
 video_ids = [
