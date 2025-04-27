@@ -20,3 +20,44 @@ Antes de rodar o código, é necessário:
    ```bash
    pip install google-api-python-client pandas tqdm
 
+
+## Videos usados nas amostras
+
+## comentarios_resendeevil.csv
+   "CaWh022KuX4",
+   "m5UpGISwdVk",
+   "7roRz1T_5qY",
+   "puplAelQdKs",
+   "nTcRHtcaE10"
+## comentarios_camila_loures.csv
+   "Bykdn5SrtM0",
+   "5uSPSVNEQ6s",
+   "TYWrS9lbHVo",
+   "m3GpdXFufU4",
+   "gRO4G1Gpf0s"
+## comentarios_enaldinho.csv
+    "aMF3dfR6Yc4",
+    "2eu6efo-gBs",
+    "x--vfRhaP0Q",
+    "NaQJYavi0kI",
+    "sM42cxbM9Ao"
+   
+
+## Palavras ofensivas no filtro
+
+palavras_ofensivas = [
+    "idiota", "burro", "otário", "nojento", "estúpido", "imbecil", 
+    "desgraçado", "babaca", "vagabundo", "corno", "traidor", "gordo", "viado", 
+    "sapatão", "doente", "gorducho", "travecão", "macaco", "negro", 
+    "cabelo ruim", "arrombado", "covarde", "vaca", "chifrudo", 
+    "bunda mole", "burra", "piranha", "puta", "puta velha", "negrinho", "criolo", 
+    "escravo", "favelado", "favelada", "subhumano", 
+    "sub-raça", "africano", "gordão", "obeso", "baleia de carga", 
+    "gordice", "furdunço", "barriga de chope", "flácido", "pançudo", "viadinho", 
+    "bicha", "traveco", "puto", "viado lixo", "arrombado", "drag queen", 
+    "lésbica", "gayzinho", "viadagem", "transfóbico", 
+    "pobre", "mendigo", "periferia", 
+    "lixo humano", "marginal", "vagabunda", "rapariga", "prostituta", "miserável", 
+    "esquisito",  "bicho velho", "velhaço", "múmia", "demente", 
+     "calvo"
+]

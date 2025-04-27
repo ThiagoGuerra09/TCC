@@ -3,15 +3,15 @@ import pandas as pd
 from tqdm import tqdm
 
 # Sua chave de API do YouTube Data
-API_KEY = ""
+API_KEY = "AIzaSyDEtRq1qdXdJEeAubuWBPJPXsXX-nk8hQo"
 
 # IDs ou URLs dos vídeos de desafio do Enaldinho
 video_ids = [
-    "F5eROuR9Nkk",
-    "DYZj9xVhkPQ",
-    "Zb8_I-Dwp8g",
-    "pxWmrSnOC_I",
-    "WXvksxij-z8"
+    "CaWh022KuX4",
+   "m5UpGISwdVk",
+   "7roRz1T_5qY",
+   "puplAelQdKs",
+   "nTcRHtcaE10"
 ]
 
 # Função para extrair comentários de um vídeo
@@ -61,5 +61,5 @@ for video_id in tqdm(video_ids, desc="Coletando comentários"):
 df_comments = pd.DataFrame(all_comments)
 
 # Salvar em CSV
-df_comments.to_csv("comentarios_enaldinhomenor.csv", index=False)
-print("Comentários salvos em 'comentarios_enaldinho.csv'")
+df_comments.to_csv("TCC/Amostras/comentarios_resendeevil.csv", index=False)
+print("Comentários salvos")
