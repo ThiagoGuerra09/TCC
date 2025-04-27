@@ -24,17 +24,17 @@ Antes de rodar o código, é necessário:
 ## Videos usados nas amostras
 
 ## comentarios_resendeevil.csv
-   "CaWh022KuX4",
-   "m5UpGISwdVk",
-   "7roRz1T_5qY",
-   "puplAelQdKs",
-   "nTcRHtcaE10"
+      "CaWh022KuX4",
+      "m5UpGISwdVk",
+      "7roRz1T_5qY",
+      "puplAelQdKs",
+      "nTcRHtcaE10"
 ## comentarios_camila_loures.csv
-   "Bykdn5SrtM0",
-   "5uSPSVNEQ6s",
-   "TYWrS9lbHVo",
-   "m3GpdXFufU4",
-   "gRO4G1Gpf0s"
+      "Bykdn5SrtM0",
+      "5uSPSVNEQ6s",
+      "TYWrS9lbHVo",
+      "m3GpdXFufU4",
+      "gRO4G1Gpf0s"
 ## comentarios_enaldinho.csv
     "aMF3dfR6Yc4",
     "2eu6efo-gBs",
