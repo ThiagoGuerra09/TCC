@@ -7,11 +7,13 @@ API_KEY = ""
 
 # IDs ou URLs dos vídeos de desafio do Enaldinho
 video_ids = [
-    "CaWh022KuX4",
-   "m5UpGISwdVk",
-   "7roRz1T_5qY",
-   "puplAelQdKs",
-   "nTcRHtcaE10"
+      "ounRlEoxIb8", "VZNqfLWxvcQ", "DkbsuIPgrtc", "Ofv8NhlIN-A", "B7uM4y301uU", "WsmGpNduvNY", "ORSQrg93eFg", "NT6bCf-r9JY", "C8vI-nO7s6s", "9TbzIKWtvOc",
+      "Bykdn5SrtM0",
+      "5uSPSVNEQ6s",
+      "TYWrS9lbHVo",
+      "m3GpdXFufU4",
+      "gRO4G1Gpf0s"
+
 ]
 
 # Função para extrair comentários de um vídeo
@@ -61,5 +63,5 @@ for video_id in tqdm(video_ids, desc="Coletando comentários"):
 df_comments = pd.DataFrame(all_comments)
 
 # Salvar em CSV
-df_comments.to_csv("TCC/Amostras/comentarios_resendeevil.csv", index=False)
+df_comments.to_csv("TCC/Amostras/comentarios_camila_loures.csv", index=False)
 print("Comentários salvos")

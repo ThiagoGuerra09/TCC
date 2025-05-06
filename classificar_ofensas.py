@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 # 1. Carregar o CSV filtrado
-df = pd.read_csv('TCC/Comentarios_Filtrados/comentarios_cyberbullying_resendeevil.csv')
+df = pd.read_csv('TCC/Comentarios_Filtrados/comentarios_cyberbullying_enaldinho.csv')
 
 
 
@@ -14,85 +14,122 @@ mapeamento_categorias = {
     # Racismo
     "macaco": "racismo",
     "negro": "racismo",
+    "negra": "racismo",
     "negrinho": "racismo",
+    "negrinha": "racismo",
     "criolo": "racismo",
+    "criola": "racismo",
     "escravo": "racismo",
-    "favelado": "racismo",
-    "favelada": "racismo",
+    "escrava": "racismo",
     "subhumano": "racismo",
     "sub-raça": "racismo",
     "africano": "racismo",
+    "africana": "racismo",
+    "cabelo ruim": "racismo",
 
     # Homofobia
     "viado": "homofobia",
+    "viada": "homofobia",
     "sapatão": "homofobia",
+    "sapatona": "homofobia",
     "travecão": "homofobia",
+    "traveca": "homofobia",
     "viadinho": "homofobia",
+    "viadinha": "homofobia",
     "bicha": "homofobia",
+    "bichão": "homofobia",
     "traveco": "homofobia",
-    "viado lixo": "homofobia",
     "drag queen": "homofobia",
     "lésbica": "homofobia",
+    "lésbico": "homofobia",
     "gayzinho": "homofobia",
     "viadagem": "homofobia",
     "transfóbico": "homofobia",
 
     # Etarismo (preconceito contra idosos/idade)
     "bicho velho": "etarismo",
+    "bicho velha": "etarismo",
     "velhaço": "etarismo",
+    "velhaça": "etarismo",
     "múmia": "etarismo",
+    "múmia velha": "etarismo",
     "demente": "etarismo",
     "calvo": "etarismo",
+    "calva": "etarismo",
 
     # Ofensa direta (xingamentos ou insultos pessoais)
-    "idiota": "ofensa",
-    "burro": "ofensa",
-    "otário": "ofensa",
-    "nojento": "ofensa",
-    "estúpido": "ofensa",
-    "imbecil": "ofensa",
-    "desgraçado": "ofensa",
-    "babaca": "ofensa",
+  # Ofensa Moral
+    "otário": "ofensa moral",
+    "otária": "ofensa moral",
+    "nojento": "ofensa moral",
+    "nojenta": "ofensa moral",
+    "desgraçado": "ofensa moral",
+    "desgraçada": "ofensa moral",
+    "corno": "ofensa moral",
+    "corna": "ofensa moral",
+    "traidor": "ofensa moral",
+    "traidora": "ofensa moral",
+    "arrombado": "ofensa moral",
+    "arrombada": "ofensa moral",
+    "covarde": "ofensa moral",
+    "lixo humano": "ofensa moral",
+    "marginal": "ofensa moral",
+    "esquisito": "ofensa moral",
+    "esquisita": "ofensa moral",
+    "furdunço": "ofensa moral",
+    "babaca": "ofensa moral",
+
+    # Ofensa gerais
     "vagabundo": "ofensa",
-    "corno": "ofensa",
-    "traidor": "ofensa",
+    "vagabunda": "ofensa",
     "doente": "ofensa",
-    "arrombado": "ofensa",
-    "covarde": "ofensa",
     "vaca": "ofensa",
     "chifrudo": "ofensa",
+    "chifruda": "ofensa",
     "bunda mole": "ofensa",
-    "burra": "ofensa",
-    "piranha": "ofensa",
-    "puta": "ofensa",
-    "puta velha": "ofensa",
-    "cabelo ruim": "ofensa",
-    "puto": "ofensa",
-    "pobre": "ofensa",
-    "mendigo": "ofensa",
-    "periferia": "ofensa",
-    "lixo humano": "ofensa",
-    "marginal": "ofensa",
-    "vagabunda": "ofensa",
-    "rapariga": "ofensa",
-    "prostituta": "ofensa",
-    "miserável": "ofensa",
-    "esquisito": "ofensa",
-    "furdunço": "ofensa",
+
+    # Ofensa Sexual
+    "piranha": "ofensa sexual",
+    "puta": "ofensa sexual",
+    "puta velha": "ofensa sexual",
+    "vagabunda": "ofensa sexual",
+    "rapariga": "ofensa sexual",
+    "prostituta": "ofensa sexual",
+
+    # Classismo
+    "pobre": "classismo",
+    "pobreza": "classismo",
+    "mendigo": "classismo",
+    "mendiga": "classismo",
+    "periferia": "classismo",
+    "miserável": "classismo",
+    "favelado": "classismo",
+    "favelada": "classismo",
+
+    # Palavras relacionadas a capacidade cognitiva
+    "idiota": "insulto cognitivo",
+    "burro": "insulto cognitivo",
+    "burra": "insulto cognitivo",
+    "estúpido": "insulto cognitivo",
+    "estúpida": "insulto cognitivo",
+    "imbecil": "insulto cognitivo",
 
     # Palavrões em geral (ofensas ligadas ao corpo/físico)
-    "gordo": "palavrões em geral",
-    "gorducho": "palavrões em geral",
-    "gordão": "palavrões em geral",
-    "obeso": "palavrões em geral",
-    "baleia de carga": "palavrões em geral",
-    "gordice": "palavrões em geral",
-    "barriga de chope": "palavrões em geral",
-    "flácido": "palavrões em geral",
-    "pançudo": "palavrões em geral"
-
-
+    "gordo": "gordofobia",
+    "gorda": "gordofobia",
+    "gorducho": "gordofobia",
+    "gorducha": "gordofobia",
+    "gordão": "gordofobia",
+    "gordona": "gordofobia",
+    "obeso": "gordofobia",
+    "obesa": "gordofobia",
+    "baleia de carga": "gordofobia",
+    "gordice": "gordofobia",
+    "barriga de chope": "gordofobia",
+    "flácido": "gordofobia",
+    "pançudo": "gordofobia"
 }
+
 
 # 3. Função para detectar categoria(s) no comentário
 def detectar_categorias(texto):
@@ -127,10 +164,10 @@ sizes = list(porcentagem_categorias.values())
 plt.figure(figsize=(8, 8))
 plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
 plt.axis('equal')  # Gráfico redondo
-plt.title('Distribuição de Categorias de Cyberbullying Resendeevil')
+plt.title('Distribuição de Categorias de Cyberbullying Enaldinho')
 
 # 8. Salvar o gráfico como PNG
-plt.savefig('TCC/Resultados/resendeevil.png', dpi=300, bbox_inches='tight')
+plt.savefig('TCC/Resultados/enaldinho.png', dpi=300, bbox_inches='tight')
 
 # Mostrar também na tela
 plt.show()

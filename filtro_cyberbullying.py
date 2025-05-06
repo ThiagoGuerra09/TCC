@@ -2,24 +2,20 @@ import pandas as pd
 import re
 
 # 1. Carregar o CSV original
-df = pd.read_csv("TCC/Amostras/comentarios_enaldinho.csv")
+df = pd.read_csv("TCC/Amostras/comentarios_camila_loures.csv")
 
 # 2. Lista de palavras ofensivas (você pode adicionar mais depois)
 palavras_ofensivas = [
-    "idiota", "burro", "otário", "nojento", "estúpido", "imbecil", 
-    "desgraçado", "babaca", "vagabundo", "corno", "traidor", "gordo", "viado", 
-    "sapatão", "doente", "gorducho", "travecão", "macaco", "negro", 
-    "cabelo ruim", "arrombado", "covarde", "vaca", "chifrudo", 
-    "bunda mole", "burra", "piranha", "puta", "puta velha", "negrinho", "criolo", 
-    "escravo", "favelado", "favelada", "subhumano", 
-    "sub-raça", "africano", "gordão", "obeso", "baleia de carga", 
-    "gordice", "furdunço", "barriga de chope", "flácido", "pançudo", "viadinho", 
-    "bicha", "traveco", "puto", "viado lixo", "arrombado", "drag queen", 
-    "lésbica", "gayzinho", "viadagem", "transfóbico", 
-    "pobre", "mendigo", "periferia", 
-    "lixo humano", "marginal", "vagabunda", "rapariga", "prostituta", "miserável", 
-    "esquisito",  "bicho velho", "velhaço", "múmia", "demente", 
-     "calvo"
+   "macaco", "negro", "negra", "negrinho", "negrinha", "criolo", "criola", "escravo", "escrava", "subhumano", "sub-raça", "africano", "africana", "cabelo ruim",
+"viado", "viada", "sapatão", "sapatona", "travecão", "traveca", "viadinho", "viadinha", "bicha", "bichão", "traveco", "drag queen", "lésbica", "lésbico", "gayzinho", "viadagem", "transfóbico",
+"bicho velho", "bicho velha", "velhaço", "velhaça", "múmia", "múmia velha", "demente", "calvo", "calva",
+"otário", "otária", "nojento", "nojenta", "desgraçado", "desgraçada", "corno", "corna", "traidor", "traidora", "arrombado", "arrombada", "covarde", "lixo humano", "marginal", "esquisito", "esquisita", "furdunço", "babaca",
+"vagabundo", "vagabunda", "doente", "vaca", "chifrudo", "chifruda", "bunda mole",
+"piranha", "puta", "puta velha", "vagabunda", "rapariga", "prostituta",
+"pobre", "pobreza", "mendigo", "mendiga", "periferia", "miserável", "favelado", "favelada",
+"idiota", "burro", "burra", "estúpido", "estúpida", "imbecil",
+"gordo", "gorda", "gorducho", "gorducha", "gordão", "gordona", "obeso", "obesa", "baleia de carga", "gordice", "barriga de chope", "flácido", "pançudo"
+
 
 ]
 
@@ -47,6 +43,6 @@ df['cyberbullying'] = df['comment_text'].apply(detectar_cyberbullying)
 df_cyberbullying = df[df['cyberbullying'] == 1]
 
 # 6. Salvar os comentários ofensivos em um novo CSV
-df_cyberbullying.to_csv('TCC/Comentarios_Filtrados/comentarios_cyberbullying_enaldinho.csv', index=False)
+df_cyberbullying.to_csv('TCC/Comentarios_Filtrados/comentarios_cyberbullying_camila_loures.csv', index=False)
 
 print("Detecção concluída. Comentários ofensivos salvos.")

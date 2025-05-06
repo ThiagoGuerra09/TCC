@@ -28,19 +28,39 @@ Antes de rodar o código, é necessário:
       "m5UpGISwdVk",
       "7roRz1T_5qY",
       "puplAelQdKs",
-      "nTcRHtcaE10"
+      "nTcRHtcaE10",
+      "CaWh022KuX4",
+      "m5UpGISwdVk",
+      "7roRz1T_5qY",
+      "puplAelQdKs",
+      "9TbzIKWtvOc", 
+      "s_OMCz5MXnU", 
+      "Pp6FwS8iFms",
+        "o_MhqpL0DVQ",
+          "DJNZza61z1U",
+            "Kjp3pXMZfF8",
+              "SZqT-ctRSec",
+                "NDCkMcNJFt0",
+                  "bKY_IGIBMQY",
+                    "_sHMAG-eKg8",
+                    "v=tTHWSgzM8yc"
 ## comentarios_camila_loures.csv
       "Bykdn5SrtM0",
       "5uSPSVNEQ6s",
       "TYWrS9lbHVo",
       "m3GpdXFufU4",
-      "gRO4G1Gpf0s"
+      "gRO4G1Gpf0s",
+      "ounRlEoxIb8", "VZNqfLWxvcQ", "DkbsuIPgrtc", "Ofv8NhlIN-A", "B7uM4y301uU", "WsmGpNduvNY", "ORSQrg93eFg", "NT6bCf-r9JY", "C8vI-nO7s6s", "9TbzIKWtvOc"
+
 ## comentarios_enaldinho.csv
-    "aMF3dfR6Yc4",
+     "mrKRmApg3I0", "h7hzx8RzzJM", "BOQW2fVqHRI", "ZqoH8AjRMvc", "9UiHhvvZ7VI", "VlPLOEmycbw", "gAX7mW3KFTQ", "ZzOXtngrGeM", "UEYmhlOE3i0",
+      "aMF3dfR6Yc4",
     "2eu6efo-gBs",
     "x--vfRhaP0Q",
     "NaQJYavi0kI",
-    "sM42cxbM9Ao"
+    "sM42cxbM9Ao",
+    "v=2byAsju7UD0"
+
    
 
 ## Palavras ofensivas no filtro
