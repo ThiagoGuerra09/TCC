@@ -61,8 +61,7 @@ Antes de rodar o código, é necessário:
     "sM42cxbM9Ao",
     "v=2byAsju7UD0"
 
-   
-
+      
 ## Palavras ofensivas no filtro
 
 palavras_ofensivas = [

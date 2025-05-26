@@ -22,7 +22,7 @@ palavras_ofensivas = [
 # 3. Função para detectar presença de palavras ofensivas no comentário
 def detectar_cyberbullying(texto):
     if pd.isnull(texto):
-        return 0  # Comentário vazio, não classifica como cyberbullying
+        return 0  
     
     # Criar expressão regular para capturar palavras inteiras, ignorando maiúsculas/minúsculas
     regex = r'\b(?:' + '|'.join(re.escape(palavra) for palavra in palavras_ofensivas) + r')\b'
@@ -32,14 +32,14 @@ def detectar_cyberbullying(texto):
     
     # Verificar se a expressão regular encontra uma das palavras ofensivas
     if re.search(regex, texto):
-        return 1  # Se encontrar uma palavra ofensiva, marca como cyberbullying
+        return 1  # Se encontrar uma palavra ofensiva, marca
     
     return 0  # Se nenhuma palavra ofensiva encontrada
 
 # 4. Aplicar a função a todos os comentários
 df['cyberbullying'] = df['comment_text'].apply(detectar_cyberbullying)
 
-# 5. Filtrar apenas comentários classificados como cyberbullying
+# 5. Filtrar apenas comentários classificados
 df_cyberbullying = df[df['cyberbullying'] == 1]
 
 # 6. Salvar os comentários ofensivos em um novo CSV

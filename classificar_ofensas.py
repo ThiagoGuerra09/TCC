@@ -3,13 +3,9 @@ import re
 from collections import Counter
 import matplotlib.pyplot as plt
 
-
 # 1. Carregar o CSV filtrado
-df = pd.read_csv('TCC/Comentarios_Filtrados/comentarios_cyberbullying_enaldinho.csv')
+df = pd.read_csv('TCC/Comentarios_Filtrados/comentarios_filtrados_camila_loures.csv')
 
-
-
-# 2. Definir o mapeamento de palavras para categorias (mapeamento_categorias que montamos acima)
 mapeamento_categorias = {
     # Racismo
     "macaco": "racismo",
@@ -130,7 +126,6 @@ mapeamento_categorias = {
     "pançudo": "gordofobia"
 }
 
-
 # 3. Função para detectar categoria(s) no comentário
 def detectar_categorias(texto):
     categorias_encontradas = set()
@@ -142,34 +137,46 @@ def detectar_categorias(texto):
             categorias_encontradas.add(categoria)
     return list(categorias_encontradas)
 
-# 4. Aplicar a função para cada comentário
+# 4. Aplicar função
 df['categorias'] = df['comment_text'].apply(detectar_categorias)
 
-# 5. Contar quantas vezes cada categoria apareceu
+# 5. Contagem
 todas_categorias = []
 for cats in df['categorias']:
     todas_categorias.extend(cats)
 
 contador = Counter(todas_categorias)
 
-# 6. Calcular porcentagem
+# 6. Porcentagem
 total_comentarios = len(df)
 porcentagem_categorias = {cat: (count / total_comentarios) * 100 for cat, count in contador.items()}
 
-# 7. Gerar gráfico de pizza
+# 7. Cores padronizadas por categoria
+cores = {
+    'racismo': 'saddlebrown',
+    'homofobia': 'orchid',
+    'etarismo': 'slategray',
+    'ofensa moral': 'darkcyan',
+    'ofensa': 'crimson',
+    'ofensa sexual': 'deeppink',
+    'classismo': 'darkorange',
+    'insulto cognitivo': 'royalblue',
+    'gordofobia': 'darkgreen'
+}
+
+# 8. Preparar dados para gráfico
 labels = list(porcentagem_categorias.keys())
 sizes = list(porcentagem_categorias.values())
+colors = [cores[label] for label in labels]
 
-# Gerar o gráfico
+# 9. Gráfico de pizza
 plt.figure(figsize=(8, 8))
-plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
-plt.axis('equal')  # Gráfico redondo
-plt.title('Distribuição de Categorias de Cyberbullying Enaldinho')
+plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140, colors=colors)
+plt.axis('equal')
+plt.title('Distribuição de Categorias de Ofensas - Camila Loures')
 
-# 8. Salvar o gráfico como PNG
-plt.savefig('TCC/Resultados/enaldinho.png', dpi=300, bbox_inches='tight')
-
-# Mostrar também na tela
+# 10. Salvar e exibir
+plt.savefig('TCC/Resultados/camila_loures.png', dpi=300, bbox_inches='tight')
 plt.show()
 
-print("\nGráfico salvo em: Resultados/grafico_categorias_cyberbullying.png")
+print("\nGráfico salvo")
