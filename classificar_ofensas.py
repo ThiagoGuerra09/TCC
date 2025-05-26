@@ -2,9 +2,8 @@ import pandas as pd
 import re
 from collections import Counter
 import matplotlib.pyplot as plt
-
 # 1. Carregar o CSV filtrado
-df = pd.read_csv('TCC/Comentarios_Filtrados/comentarios_filtrados_camila_loures.csv')
+df = pd.read_csv('TCC/Comentarios_Filtrados/comentarios_filtrados_resendeevil.csv')
 
 mapeamento_categorias = {
     # Racismo
@@ -173,10 +172,10 @@ colors = [cores[label] for label in labels]
 plt.figure(figsize=(8, 8))
 plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140, colors=colors)
 plt.axis('equal')
-plt.title('Distribuição de Categorias de Ofensas - Camila Loures')
+plt.title('Distribuição de Categorias de Ofensas - Resendeevil')
 
 # 10. Salvar e exibir
-plt.savefig('TCC/Resultados/camila_loures.png', dpi=300, bbox_inches='tight')
+plt.savefig('TCC/Resultados/resendeevil.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 print("\nGráfico salvo")
