@@ -22,8 +22,9 @@ def classifica_comentario(texto, threshold=0.05):
                 return "not_toxic"
     
     return "not_toxic"
+
 # Carregar e classificar os comentários
-df = pd.read_csv("Comentarios_Filtrados/comentarios_filtrados_resendeevil.csv")
+df = pd.read_csv("Comentarios_Filtrados/comentarios_filtrados_camila_loures.csv")
 df['classificacao'] = df['comment_text'].apply(classifica_comentario)
 
 df.to_csv("Toxic/toxic_camila_loures.csv", index=False)
@@ -31,12 +32,20 @@ df.to_csv("Toxic/toxic_camila_loures.csv", index=False)
 # Contagem para o gráfico
 contagem = df['classificacao'].value_counts()
 
-# Gráfico de pizza
+# Gráfico de pizza com textos em negrito e título com espaçamento maior
 plt.figure(figsize=(6, 6))
-plt.pie(contagem, labels=contagem.index, autopct='%1.1f%%', startangle=140, colors=["#66b3ff", "#ff6666"])
-plt.title("Distribuição de Comentários Tóxicos vs Não Tóxicos")
+wedges, texts, autotexts = plt.pie(
+    contagem,
+    labels=contagem.index,
+    autopct='%1.1f%%',
+    startangle=140,
+    colors=["#66b3ff", "#ff6666"],
+    textprops={'fontweight': 'bold'}  # Negrito nos textos
+)
+
+plt.title("Distribuição de Comentários Tóxicos Camila Loures", fontweight='bold', pad=20)  # Título em negrito e espaçamento maior
 plt.axis('equal')
 
 # Salvar gráfico na pasta Toxic
-plt.savefig("Toxic/resendeevil_toxicidade.png")
+plt.savefig("Toxic/camila_loures_toxicidade.png")
 plt.show()

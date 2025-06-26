@@ -3,7 +3,7 @@ import re
 from collections import Counter
 import matplotlib.pyplot as plt
 # 1. Carregar o CSV filtrado
-df = pd.read_csv('TCC/Comentarios_Filtrados/comentarios_filtrados_resendeevil.csv')
+df = pd.read_csv('TCC/Comentarios_Filtrados/comentarios_filtrados_enaldinho.csv')
 
 mapeamento_categorias = {
     # Racismo
@@ -168,14 +168,25 @@ labels = list(porcentagem_categorias.keys())
 sizes = list(porcentagem_categorias.values())
 colors = [cores[label] for label in labels]
 
-# 9. Gráfico de pizza
-plt.figure(figsize=(8, 8))
-plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140, colors=colors)
-plt.axis('equal')
-plt.title('Distribuição de Categorias de Ofensas - Resendeevil')
+# 9. Gráfico de barras horizontais
+plt.figure(figsize=(10, 6))
+bars = plt.barh(labels, sizes, color=colors)
+plt.xlabel('Porcentagem (%)', fontweight='bold')
+plt.title('Distribuição de Categorias de Ofensas - Enaldinho', fontweight='bold')
+plt.grid(axis='x', linestyle='--', alpha=0.7)
+plt.xlim(0, 50)  # Limitar o eixo X até 50%
+plt.yticks(fontweight='bold')  # Deixa os labels do eixo Y em negrito
+
+# Exibir valores nas barras em negrito
+for bar in bars:
+    width = bar.get_width()
+    plt.text(width + 0.5, bar.get_y() + bar.get_height() / 2, f'{width:.1f}%', 
+             va='center', fontweight='bold')
 
 # 10. Salvar e exibir
-plt.savefig('TCC/Resultados/resendeevil.png', dpi=300, bbox_inches='tight')
+plt.tight_layout()
+plt.savefig('TCC/Resultados/enaldinho.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 print("\nGráfico salvo")
+

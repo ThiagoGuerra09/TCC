@@ -2,12 +2,21 @@ import requests
 import pandas as pd
 from tqdm import tqdm
 
-# Sua chave de API do YouTube Data
+# chave de API
 API_KEY = ""
 
-# IDs ou URLs dos vídeos de desafio do Enaldinho
+
 video_ids = [
-      "ounRlEoxIb8", "VZNqfLWxvcQ", "DkbsuIPgrtc", "Ofv8NhlIN-A", "B7uM4y301uU", "WsmGpNduvNY", "ORSQrg93eFg", "NT6bCf-r9JY", "C8vI-nO7s6s", "9TbzIKWtvOc",
+      "ounRlEoxIb8", 
+      "VZNqfLWxvcQ",
+        "DkbsuIPgrtc", 
+        "Ofv8NhlIN-A", 
+        "B7uM4y301uU", 
+        "WsmGpNduvNY", 
+        "ORSQrg93eFg", 
+        "NT6bCf-r9JY", 
+        "C8vI-nO7s6s", 
+        "9TbzIKWtvOc",
       "Bykdn5SrtM0",
       "5uSPSVNEQ6s",
       "TYWrS9lbHVo",
@@ -16,7 +25,6 @@ video_ids = [
 
 ]
 
-# Função para extrair comentários de um vídeo
 def get_comments(video_id, api_key):
     comments = []
     next_page_token = None
