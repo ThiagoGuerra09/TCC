@@ -1,8 +1,34 @@
-# TCC Thiago Guerra Werkhaizer Felipe
+#  Análise de Discurso de Ódio nas maiores Personalidades Masculinas e Femininas em comentários do YouTube
 
-# Análise de Comentários de grandes influenciadores no YouTube para Identificação de Cyberbullying
+-bispo bruno
+-felipe neto
+-winderson
+-enaldinho
+-rezendeevil 
+-emily vick
+-anninha
+-juliana baltar
+-ju araujo
+-crescendo com a luluca
+https://socialblade.com/youtube/lists/top/50/subscribers/all/BR
 
-Este projeto visa realizar uma análise de dados nos comentários de vídeos do YouTube do Enaldinho, com o objetivo de identificar potenciais casos de cyberbullying. Utilizando a API do YouTube, os comentários são extraídos e armazenados para posterior análise.
+
+
+### Categorias Identificadas
+
+* **Racismo**
+* **Homofobia**
+* **Etarismo**
+* **Classismo**
+* **Capacitismo**
+* **Gordofobia**
+* **Pedofilia**
+
+A análise tem início com uma filtragem ampla de conteúdos ofensivos e avança para uma etapa especializada na detecção de comentários com sinais de pedofilia, contribuindo para o combate a esse tipo de comportamento em ambientes digitais.
+
+Este trabalho busca não apenas apoiar ações de moderação automática, mas também fomentar debates sobre o uso de PLN na segurança digital, no monitoramento de redes sociais e na defesa de grupos vulneráveis.
+
+
 
 ## Tecnologias Utilizadas
 
@@ -60,6 +86,13 @@ Antes de rodar o código, é necessário:
     "NaQJYavi0kI",
     "sM42cxbM9Ao",
     "v=2byAsju7UD0"
+
+## comentarios_emily_vick.csv:
+MpgOLOYJiGY
+6LPcrI6FmXg
+Dcv71FA46I4
+gzKv_DrQ9ag
+O8bi5qlhHBE
 
       
 ## Palavras ofensivas no filtro

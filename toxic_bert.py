@@ -1,7 +1,6 @@
 from transformers import pipeline, AutoTokenizer
 import pandas as pd
 import matplotlib.pyplot as plt
-import os
 
 # Carregar modelo
 tokenizer = AutoTokenizer.from_pretrained("unitary/toxic-bert")

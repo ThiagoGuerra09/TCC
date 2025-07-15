@@ -3,7 +3,7 @@ import pandas as pd
 from tqdm import tqdm
 
 # chave de API
-API_KEY = ""
+API_KEY = "AIzaSyDEtRq1qdXdJEeAubuWBPJPXsXX-nk8hQo"
 
 
 video_ids = [
