@@ -3,25 +3,20 @@ import pandas as pd
 from tqdm import tqdm
 
 # chave de API
-API_KEY = ""
+API_KEY = "AIzaSyDEtRq1qdXdJEeAubuWBPJPXsXX-nk8hQo"
 
 
 video_ids = [
-      "ounRlEoxIb8", 
-      "VZNqfLWxvcQ",
-        "DkbsuIPgrtc", 
-        "Ofv8NhlIN-A", 
-        "B7uM4y301uU", 
-        "WsmGpNduvNY", 
-        "ORSQrg93eFg", 
-        "NT6bCf-r9JY", 
-        "C8vI-nO7s6s", 
-        "9TbzIKWtvOc",
-      "Bykdn5SrtM0",
-      "5uSPSVNEQ6s",
-      "TYWrS9lbHVo",
-      "m3GpdXFufU4",
-      "gRO4G1Gpf0s"
+"cFsVFooB8ro",
+"3HMUMn2sSIA",
+"x6c5M66YVdQ",
+"aaEyGYRFQnw",
+"Dcv71FA46I4",
+"bftlxgQtyxI",
+"qmjleMsm_b0",
+"e8fC12A8W-o",
+"Erwv9-NZfvY",
+"u_TyGMy_aqs"
 
 ]
 
@@ -71,5 +66,5 @@ for video_id in tqdm(video_ids, desc="Coletando comentários"):
 df_comments = pd.DataFrame(all_comments)
 
 # Salvar em CSV
-df_comments.to_csv("TCC/Amostras/comentarios_camila_loures.csv", index=False)
+df_comments.to_csv("TCC/Amostras/comentarios_emilly_vick.csv", index=False)
 print("Comentários salvos")
