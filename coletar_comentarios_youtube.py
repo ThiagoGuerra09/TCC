@@ -7,16 +7,16 @@ API_KEY = "AIzaSyDEtRq1qdXdJEeAubuWBPJPXsXX-nk8hQo"
 
 
 video_ids = [
-"cFsVFooB8ro",
-"3HMUMn2sSIA",
-"x6c5M66YVdQ",
-"aaEyGYRFQnw",
-"Dcv71FA46I4",
-"bftlxgQtyxI",
-"qmjleMsm_b0",
-"e8fC12A8W-o",
-"Erwv9-NZfvY",
-"u_TyGMy_aqs"
+"C7rKFo50PK8", 
+"DzkMLuO8biE", 
+"dCWcISux6xo", 
+"lT6B2WKHI6A", 
+"6vH17KTgW24", 
+"aizCC3nCddQ", 
+"dhYkK5AeLvI", 
+"12cHSEVdmqc", 
+"pXKiv0OiSjY", 
+"Y9YZ-WuiH-Q"
 
 ]
 
@@ -66,5 +66,5 @@ for video_id in tqdm(video_ids, desc="Coletando comentários"):
 df_comments = pd.DataFrame(all_comments)
 
 # Salvar em CSV
-df_comments.to_csv("TCC/Amostras/comentarios_emilly_vick.csv", index=False)
+df_comments.to_csv("TCC/Amostras/comentarios_anninha.csv", index=False)
 print("Comentários salvos")
