@@ -1,31 +1,44 @@
 import requests
 import pandas as pd
 from tqdm import tqdm
+import re
+import nltk
+import string
+from unidecode import unidecode
+import os
 
-# chave de API
+# Baixar stopwords
+nltk.download('stopwords')
+from nltk.corpus import stopwords
+stop_words = set(stopwords.words('portuguese'))
+
+# Função de pré-processamento de texto
+def clean_text(text):
+    text = text.lower()
+    text = unidecode(text)
+    text = text.encode('ascii', 'ignore').decode('ascii')
+    text = re.sub(rf"[{re.escape(string.punctuation)}]", '', text)
+    text = re.sub(r'\d+', '', text)
+    words = text.split()
+    filtered = [w for w in words if w not in stop_words]
+    return ' '.join(filtered)
+
+# Sua chave de API
 API_KEY = "AIzaSyDEtRq1qdXdJEeAubuWBPJPXsXX-nk8hQo"
 
-
+# Lista de vídeos
 video_ids = [
-"C7rKFo50PK8", 
-"DzkMLuO8biE", 
-"dCWcISux6xo", 
-"lT6B2WKHI6A", 
-"6vH17KTgW24", 
-"aizCC3nCddQ", 
-"dhYkK5AeLvI", 
-"12cHSEVdmqc", 
-"pXKiv0OiSjY", 
-"Y9YZ-WuiH-Q"
-
+    "V3ofduTWkAQ", "vHM0WDOSmkI", "H_KwXFbndgU", "OOmlwPK2bUk", "1F5vQ3CHpWY",
+    "iTuEnASvx1o", "unFwZV1Loos", "EneeuNlIvws", "uEwQbHUO5AM", "G8--9KTjcvM"
 ]
 
+# Coleta de comentários
 def get_comments(video_id, api_key):
     comments = []
     next_page_token = None
 
     while True:
-        url = f"https://www.googleapis.com/youtube/v3/commentThreads"
+        url = "https://www.googleapis.com/youtube/v3/commentThreads"
         params = {
             'part': 'snippet',
             'videoId': video_id,
@@ -38,13 +51,16 @@ def get_comments(video_id, api_key):
         response_data = response.json()
 
         for item in response_data.get("items", []):
-            comment = item["snippet"]["topLevelComment"]["snippet"]
+            snippet = item["snippet"]["topLevelComment"]["snippet"]
+            raw_text = snippet["textDisplay"]
+            clean = clean_text(raw_text)
+
             comments.append({
                 "video_id": video_id,
-                "author": comment["authorDisplayName"],
-                "comment_text": comment["textDisplay"],
-                "like_count": comment["likeCount"],
-                "published_at": comment["publishedAt"]
+                "author": snippet["authorDisplayName"],
+                "comment_text": clean,  # <-- campo limpo aqui
+                "like_count": snippet["likeCount"],
+                "published_at": snippet["publishedAt"]
             })
 
         next_page_token = response_data.get("nextPageToken")
@@ -53,18 +69,21 @@ def get_comments(video_id, api_key):
 
     return comments
 
-# Coletar comentários de todos os vídeos
+# Coletar todos os comentários
 all_comments = []
 for video_id in tqdm(video_ids, desc="Coletando comentários"):
     try:
         comments = get_comments(video_id, API_KEY)
         all_comments.extend(comments)
     except Exception as e:
-        print(f"Erro ao coletar comentários do vídeo {video_id}: {e}")
+        print(f"Erro ao coletar do vídeo {video_id}: {e}")
 
-# Converter para DataFrame
+# Criar DataFrame
 df_comments = pd.DataFrame(all_comments)
 
-# Salvar em CSV
+# Garantir pasta existente
+os.makedirs("TCC/Amostras", exist_ok=True)
+
+# Salvar CSV com todos os campos
 df_comments.to_csv("TCC/Amostras/comentarios_anninha.csv", index=False)
-print("Comentários salvos")
+print("Comentários limpos salvos com sucesso!")
