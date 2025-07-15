@@ -1,15 +1,125 @@
 #  Análise de Discurso de Ódio nas maiores Personalidades Masculinas e Femininas em comentários do YouTube
 
--bispo bruno
+-bispo bruno:
+"SFSPjX591hA",
+"izIa5xDX094",
+"OkoHJgfcZBk",
+"QWMg1bLdy7U",
+"dVHQxU5KhLM",
+"KZeTKsRQTfA",
+"t2I2FDNz5xU",
+"3NJjrghjPyc",
+"cgdoGLvgG9w",
+"JAwBqMyt3Nk"
+
 -felipe neto
+"7UTClwYpgXE",
+"pHli3L0xRfg",
+"hw3mHxVtiTw",
+"TNBTzerijaQ",
+"1MMAjoSZqA8",
+"D8hkMSCOvC8",
+"agos62BlEOM",
+"PXrNonie1WA",
+"fYPGDZeTXJ4",
+"a5DcW9x9PDg"
+
 -winderson
--enaldinho
--rezendeevil 
--emily vick
--anninha
--juliana baltar
--ju araujo
--crescendo com a luluca
+"i2e38H1X53I",
+"alktFBHgZ00",
+"34xcdhQ0QgU",
+"6hpyUD3KQoE",
+"wwlwrjVXdg0",
+"vvS0m7yf6ww",
+"54QGyt5H-_Y",
+"PT-5jhpRLh0",
+"OR4tLZuOq80",
+"wdz1ZboxNWk"
+
+-enaldinho:
+"NkJd_aQEPPY",
+"aOhflVlY_h4",
+"4dxbiDckCPw",
+"bd07rv6BmRM",
+"KObGLynko9Y",
+"hHml6pAiQPg",
+"0s5he21kJW0",
+"ljYIbmN8l70",
+"IsqJ4TlU1Ns",
+"SnTxI-vxO38"
+
+-rezendeevil:
+"7Dz9ZG9RR64",
+"n5Z63n3Dwts",
+"KI2-F4AVhu8",
+"gnqaTBoMNgk",
+"puplAelQdKs",
+"c6KcYJdXgic",
+"ulZ3Rt9Jcg8",
+"tXPTxNd29Kg",
+"oN4RbaOUrF4",
+"efN_Evhl8qo"
+
+-emily vick:
+"cFsVFooB8ro",
+"3HMUMn2sSIA",
+"x6c5M66YVdQ",
+"aaEyGYRFQnw",
+"Dcv71FA46I4",
+"bftlxgQtyxI",
+"qmjleMsm_b0",
+"e8fC12A8W-o",
+"Erwv9-NZfvY",
+"u_TyGMy_aqs"
+
+-anninha:
+"C7rKFo50PK8", 
+"DzkMLuO8biE", 
+"dCWcISux6xo", 
+"lT6B2WKHI6A", 
+"6vH17KTgW24", 
+"aizCC3nCddQ", 
+"dhYkK5AeLvI", 
+"12cHSEVdmqc", 
+"pXKiv0OiSjY", 
+"Y9YZ-WuiH-Q"
+
+-juliana baltar:
+"V3ofduTWkAQ",
+"vHM0WDOSmkI",
+"H_KwXFbndgU",
+"OOmlwPK2bUk",
+"1F5vQ3CHpWY",
+"iTuEnASvx1o",
+"unFwZV1Loos",
+"EneeuNlIvws",
+"uEwQbHUO5AM",
+"G8--9KTjcvM"
+
+-ju araujo:
+"i8MMPGfd0BM",
+"1JPtgaxdfwg",
+"SyC36zrH9_A",
+"AV8BT9e98Ec",
+"aF9t4CLhT7E",
+"Oyw0QaIA61w",
+"D4txwJg96do",
+"dbWsRXc9W5I",
+"-2Iu2S0MKtE",
+"plbF_uP-8aI"
+
+-crescendo com a luluca:
+"ExH89R0aWfk",
+"qsUqWfB-ydI",
+"aUGseCX7I6k",
+"vQrCdIDdeuk",
+"JtAi4Sj8jCA",
+"qUXljiTyJbg",
+"ybkfssrjHUk",
+"nuyGsYRoCTI",
+"aKeXWNg2J64",
+"JvsjliIZtTQ" 
+
 https://socialblade.com/youtube/lists/top/50/subscribers/all/BR
 
 
@@ -43,8 +153,7 @@ Antes de rodar o código, é necessário:
 1. Ter uma chave de API do YouTube, que pode ser obtida [aqui](https://console.developers.google.com/).
 2. Instalar as bibliotecas necessárias utilizando o comando:
 
-   ```bash
-   pip install google-api-python-client pandas tqdm
+  pip install -r requirements.txt
 
 
 ## Videos usados nas amostras
