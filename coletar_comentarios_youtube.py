@@ -28,16 +28,11 @@ API_KEY = "AIzaSyDEtRq1qdXdJEeAubuWBPJPXsXX-nk8hQo"
 
 # Lista de vídeos
 video_ids = [
-"7Dz9ZG9RR64",
-"n5Z63n3Dwts",
-"KI2-F4AVhu8",
-"gnqaTBoMNgk",
-"puplAelQdKs",
-"c6KcYJdXgic",
-"ulZ3Rt9Jcg8",
-"tXPTxNd29Kg",
-"oN4RbaOUrF4",
-"efN_Evhl8qo"
+"47FGBO1UbWA",
+"ozmfExb6U6g",
+"bXgjHV-pF9Q",
+"vSnLsJODJS0",
+"08X33o1IarI"
 ]
 
 # Coleta de comentários
@@ -90,5 +85,5 @@ for video_id in tqdm(video_ids, desc="Coletando comentários"):
 df_comments = pd.DataFrame(all_comments)
 
 # Salvar CSV com todos os campos
-df_comments.to_csv("TCC/Amostras/comentarios_rezendeevil.csv", index=False)
+df_comments.to_csv("TCC/Amostras/comentarios_bispo_bruno.csv", index=False)
 print("Comentários limpos salvos com sucesso!")
