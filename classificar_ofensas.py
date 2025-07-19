@@ -2,9 +2,12 @@ import pandas as pd
 import re
 from collections import Counter
 import matplotlib.pyplot as plt
-# 1. Carregar o CSV filtrado
-df = pd.read_csv('TCC/Comentarios_Filtrados/comentarios_filtrados_enaldinho.csv')
 
+
+# Carrega CSV já existente
+df = pd.read_csv('personalidades_femininas.csv')
+
+# Dicionário de mapeamento de palavras -> categoria (mantido o seu)
 mapeamento_categorias = {
     # Racismo
     "macaco": "racismo",
@@ -383,68 +386,65 @@ mapeamento_categorias = {
     "banhinha": "gordofobia",
     "banhona": "gordofobia"
 
-}
+} # seu mapeamento completo aqui
 
-# 3. Função para detectar categoria(s) no comentário
+# 3. Função para detectar categorias
 def detectar_categorias(texto):
-    categorias_encontradas = set()
+    categorias = set()
     if pd.isnull(texto):
         return []
     texto = texto.lower()
     for palavra, categoria in mapeamento_categorias.items():
         if re.search(r'\b' + re.escape(palavra) + r'\b', texto):
-            categorias_encontradas.add(categoria)
-    return list(categorias_encontradas)
+            categorias.add(categoria)
+    return list(categorias)
 
-# 4. Aplicar função
+# 4. Aplica função
 df['categorias'] = df['comment_text'].apply(detectar_categorias)
 
-# 5. Contagem
-todas_categorias = []
-for cats in df['categorias']:
-    todas_categorias.extend(cats)
-
-contador = Counter(todas_categorias)
-
-# 6. Porcentagem
+# 5. Contagens
 total_comentarios = len(df)
-porcentagem_categorias = {cat: (count / total_comentarios) * 100 for cat, count in contador.items()}
+contador = Counter(cat for subcats in df['categorias'] for cat in subcats)
+total_filtrados = sum(contador.values())
 
-# 7. Cores padronizadas por categoria
-cores = {
-    'racismo': 'saddlebrown',
-    'homofobia': 'orchid',
-    'etarismo': 'slategray',
-    'classismo': 'darkorange',
-    'capacitismo': 'royalblue',
-    'gordofobia': 'darkgreen',
-    'pedofilia': 'deeppink'
-}
+# 6. Prepara dados da tabela
+dados = []
+for categoria, quantidade in contador.items():
+    porcentagem = f"{(quantidade / total_filtrados) * 100:.1f}%"
+    dados.append([categoria.capitalize(), quantidade, porcentagem])
 
-# 8. Preparar dados para gráfico
-labels = list(porcentagem_categorias.keys())
-sizes = list(porcentagem_categorias.values())
-colors = [cores[label] for label in labels]
+# Ordenar por quantidade (opcional)
+dados.sort(key=lambda x: x[1], reverse=True)
 
-# 9. Gráfico de barras horizontais
-plt.figure(figsize=(10, 6))
-bars = plt.barh(labels, sizes, color=colors)
-plt.xlabel('Porcentagem (%)', fontweight='bold')
-plt.title('Distribuição de Categorias de Ofensas - Enaldinho', fontweight='bold')
-plt.grid(axis='x', linestyle='--', alpha=0.7)
-plt.xlim(0, 50)  # Limitar o eixo X até 50%
-plt.yticks(fontweight='bold')  # Deixa os labels do eixo Y em negrito
+# 7. Gera tabela como imagem
+fig, ax = plt.subplots(figsize=(8, len(dados) * 0.6 + 2))
 
-# Exibir valores nas barras em negrito
-for bar in bars:
-    width = bar.get_width()
-    plt.text(width + 0.5, bar.get_y() + bar.get_height() / 2, f'{width:.1f}%', 
-             va='center', fontweight='bold')
+plt.suptitle("Comentários analisados personalidades femininas", fontsize=16, fontweight='bold', y=1.05)
 
-# 10. Salvar e exibir
+plt.text(0.5, 1.0,
+         f'Total de Comentários Analisados: {total_comentarios}\nTotal de Comentários Filtrados: {total_filtrados}',
+         ha='center', va='top', fontsize=13, fontweight='bold', transform=ax.transAxes)
+
+
+ax.axis('off')
+
+col_labels = ["Categoria", "Quantidade", "Porcentagem"]
+table = ax.table(cellText=dados, colLabels=col_labels, loc='center', cellLoc='center')
+
+table.auto_set_font_size(False)
+table.set_fontsize(12)
+table.scale(1, 2)
+
 plt.tight_layout()
-plt.savefig('TCC/Resultados/enaldinho.png', dpi=300, bbox_inches='tight')
+plt.savefig("Resultados/tabela_femina.png", dpi=300, bbox_inches='tight')
 plt.show()
 
-print("\nGráfico salvo")
+# Filtrar apenas comentários que possuem pelo menos uma categoria identificada
+df_filtrados = df[df['categorias'].apply(lambda x: len(x) > 0)]
 
+# Salvar os comentários filtrados em um CSV
+df_filtrados.to_csv("Resultados/comentarios_filtrados_femininos.csv", index=False)
+
+print(f"Total de comentários filtrados salvos: {len(df_filtrados)}")
+
+print("Tabela gerada e salva")
