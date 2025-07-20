@@ -23,10 +23,10 @@ def classifica_comentario(texto, threshold=0.05):
     return "not_toxic"
 
 # Carregar e classificar os comentários
-df = pd.read_csv("Comentarios_Filtrados/comentarios_filtrados_camila_loures.csv")
+df = pd.read_csv("Resultados/comentarios_filtrados_masculinos.csv")
 df['classificacao'] = df['comment_text'].apply(classifica_comentario)
 
-df.to_csv("Toxic/toxic_camila_loures.csv", index=False)
+df.to_csv("Toxic/toxicidade_masculina.csv", index=False)
 
 # Contagem para o gráfico
 contagem = df['classificacao'].value_counts()
@@ -42,9 +42,9 @@ wedges, texts, autotexts = plt.pie(
     textprops={'fontweight': 'bold'}  # Negrito nos textos
 )
 
-plt.title("Distribuição de Comentários Tóxicos Camila Loures", fontweight='bold', pad=20)  # Título em negrito e espaçamento maior
+plt.title("Distribuição de Tóxicidade Personalidades Masculinas", fontweight='bold', pad=20)  # Título em negrito e espaçamento maior
 plt.axis('equal')
 
 # Salvar gráfico na pasta Toxic
-plt.savefig("Toxic/camila_loures_toxicidade.png")
+plt.savefig("Toxic/personalidades_masculinas_toxicidade.png")
 plt.show()
